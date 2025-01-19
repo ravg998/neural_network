@@ -1,0 +1,16 @@
+//
+// Created by Rayan Ould Maamar on 28/12/2024.
+//
+
+#ifndef NEURALNETWORK_ACTIVATIONFUNCTIONTYPE_HH
+#define NEURALNETWORK_ACTIVATIONFUNCTIONTYPE_HH
+
+enum class ActivationFunctionType
+{
+    LINEAR,
+    SIGMOID,
+    RELU,
+    TANH,
+};
+
+#endif //NEURALNETWORK_ACTIVATIONFUNCTIONTYPE_HH
