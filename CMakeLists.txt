@@ -19,4 +19,5 @@ add_executable(output main.cpp ../math/Matrix.cpp ../math/Random.cpp
         NeuralNetwork.hh
         Loss.cpp
         Loss.hh
+        LossType.hh
 )

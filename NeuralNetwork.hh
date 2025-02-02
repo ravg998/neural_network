@@ -13,16 +13,16 @@ class NeuralNetwork
 private:
     // INPUTS
     Matrix _x;
-    Matrix _y_hat;
+    Matrix _y;
     unsigned int _n_layer;
     Vect<Layer> _layer_vector;
     unsigned int _n_observation;
 
     //
-    Loss _loss;
+    Loss* _loss;
 
     // OUTPUT
-    Matrix _y;
+    Matrix _y_hat;
 
 
 public:
@@ -42,7 +42,7 @@ public:
 
     // SET & GET
     Layer& get_final_layer() const;
-    Loss get_loss() const;
+    Loss* get_loss() const;
 
 };
 

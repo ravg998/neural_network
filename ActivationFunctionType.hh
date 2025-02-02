@@ -11,6 +11,7 @@ enum class ActivationFunctionType
     SIGMOID,
     RELU,
     TANH,
+    SOFTMAX
 };
 
 #endif //NEURALNETWORK_ACTIVATIONFUNCTIONTYPE_HH

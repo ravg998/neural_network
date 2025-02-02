@@ -10,7 +10,7 @@
 Here, we assume that:
     input  = _x
     w*_x --> _z
-    f(_z) --> _y
+    f(_z) --> _y_hat
 
 
 X = (n_features x n_observations)
@@ -42,7 +42,7 @@ private:
     Matrix _dl_db;
 
     // OUTPUTS
-    Matrix _y;
+    Matrix _y_hat;
 
 public:
     // CONSTRUCTOR

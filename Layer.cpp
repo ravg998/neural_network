@@ -74,7 +74,7 @@ void Layer::compute_z() {
 
 }
 void Layer::compute_y() {
-    _y = _activation_function.forward(_z);
+    _y_hat = _activation_function.forward(_z);
 }
 
 
@@ -190,12 +190,12 @@ Matrix Layer::get_weight() const
 
 Matrix Layer::get_y() const
 {
-    return _y;
+    return _y_hat;
 }
 
 Matrix Layer::get_y(unsigned int i) const
 {
-    return Matrix(_y.extract_col(i)).transpose();
+    return Matrix(_y_hat.extract_col(i)).transpose();
 
 }
 

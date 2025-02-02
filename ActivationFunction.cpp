@@ -26,6 +26,8 @@ Matrix ActivationFunction::forward(const Matrix & z_matrix) {
         return z_matrix.max(0);
     else if (_activation_function_type==ActivationFunctionType::TANH)
         return z_matrix.tanh();
+    else if (_activation_function_type==ActivationFunctionType::SOFTMAX)
+        return z_matrix.softmax();
     else
         return Matrix(MatrixType::MATRIX_NULL, 1, 1);
 }
@@ -40,8 +42,8 @@ Matrix ActivationFunction::backward(const Matrix & z_matrix) {
         for (unsigned int i= 0; i<z_matrix.get_n_row(); i++)
                 m[i][i] = std::exp(-z_matrix[i][0])/std::pow(1+std::exp(-z_matrix[i][0]),2);
         return m;
-
     }
+
     else if (_activation_function_type==ActivationFunctionType::RELU)
     {
         Matrix m(MatrixType::ID,z_matrix.get_n_row(),z_matrix.get_n_row());
@@ -53,6 +55,22 @@ Matrix ActivationFunction::backward(const Matrix & z_matrix) {
     }
     else if (_activation_function_type==ActivationFunctionType::TANH)
         return z_matrix.tanh();
+    else if (_activation_function_type==ActivationFunctionType::SOFTMAX)
+    {
+        Matrix m(MatrixType::ID,z_matrix.get_n_row(),z_matrix.get_n_row());
+        for (unsigned int i = 0; i<m.get_n_row();i++)
+        {
+            for (unsigned int j = 0; j<m.get_n_col(); j++)
+            {
+                if (i==j)
+                    m[i][j] = m[i][j]*(1-m[i][j]);
+                else
+                    m[i][j] = -m[i][j]*m[i][i];
+            }
+        }
+        return m;
+
+    }
     else
         return Matrix(MatrixType::MATRIX_NULL, 1, 1);
 }
