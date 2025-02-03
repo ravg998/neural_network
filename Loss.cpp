@@ -16,6 +16,9 @@ Loss::Loss(const Matrix& y)
 
 
 // GET & SET
+void Loss::set_y(const Matrix & y) {
+    _y = y;
+}
 Matrix Loss::get_dl_dy() const
 {
     return _dl_dy;
@@ -42,6 +45,9 @@ std::ostream& operator<<(std::ostream& c, const Loss& l)
 }
 
 // LOSS ENTROPY
+LossEntropy::LossEntropy(): Loss(){};
+LossEntropy::LossEntropy(const Matrix &y): Loss(y) {};
+
 Matrix LossEntropy::compute_loss(const Matrix & output) {
     _y_hat = output;
     _loss = _y.log().hadamard_product(_y_hat)*(-1);
@@ -56,6 +62,8 @@ void LossEntropy::compute_dl_dy()
 
 
 // EUCLIDEAN
+LossEuclidean::LossEuclidean(): Loss(){};
+LossEuclidean::LossEuclidean(const Matrix& y): Loss(y){};
 Matrix LossEuclidean::compute_loss(const Matrix & output) {
     _y_hat = output;
      _loss =  (_y_hat  - _y).square();

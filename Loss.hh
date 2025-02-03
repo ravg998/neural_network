@@ -24,6 +24,7 @@ public:
     virtual void compute_dl_dy()=0;
 
     // GET & SET
+    void set_y(const Matrix&) ;
     Matrix get_dl_dy() const;
     Matrix get_loss() const;
     Matrix get_y_hat() const;
@@ -38,19 +39,21 @@ class LossEntropy: public Loss{
 private:
     LossType _loss_type = LossType::ENTROPY;
 public:
-    LossEntropy(const Matrix& y): Loss(y){};
+    LossEntropy();
+    LossEntropy(const Matrix& y);
     Matrix compute_loss(const Matrix&) override;
     void compute_dl_dy() override ;
 
-
 };
+
 
 class LossEuclidean: public Loss{
 private:
     LossType _loss_type = LossType::EUCLIDEAN;
 
 public:
-    LossEuclidean(const Matrix& y): Loss(y){};
+    LossEuclidean();
+    LossEuclidean(const Matrix&);
     Matrix compute_loss(const Matrix&) override;
     void compute_dl_dy() override;
 };

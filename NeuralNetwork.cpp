@@ -5,13 +5,17 @@
 #include "NeuralNetwork.hh"
 #include "LossType.hh"
 // CONSTRUCTOR
-NeuralNetwork::NeuralNetwork(const Vect<Layer>& layer_vector, const Matrix & input, const Matrix & output) {
+NeuralNetwork::NeuralNetwork(const Vect<Layer>& layer_vector,
+                             const Matrix & input,
+                             const Matrix & output,
+                             Loss& loss){
    _layer_vector = Vect<Layer>(layer_vector);
    _x = input;
     _y = output;
    _n_layer = _layer_vector.get_size();
-   _loss =  new LossEuclidean(_y);
-    _n_observation = _layer_vector[0].get_n_observation();
+   _loss = &loss;
+   _loss->set_y(_y);
+   _n_observation = _layer_vector[0].get_n_observation();
 
 }
 

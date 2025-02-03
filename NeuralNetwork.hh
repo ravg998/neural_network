@@ -27,7 +27,7 @@ private:
 
 public:
     // CONSTRUCTOR
-    NeuralNetwork(const Vect<Layer>&, const Matrix&, const Matrix&);
+    NeuralNetwork(const Vect<Layer>&, const Matrix&, const Matrix&, Loss&);
 
     // METHOD
     void forward();

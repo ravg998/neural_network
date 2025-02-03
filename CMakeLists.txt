@@ -12,9 +12,9 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 add_executable(output main.cpp ../math/Matrix.cpp ../math/Random.cpp
         Layer.hh
         Layer.cpp
-        ActivationFunction.hh
+        Activation.hh
         ActivationFunctionType.hh
-        ActivationFunction.cpp
+        Activation.cpp
         NeuralNetwork.cpp
         NeuralNetwork.hh
         Loss.cpp

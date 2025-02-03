@@ -73,8 +73,8 @@ build CMakeFiles/output.dir/Layer.cpp.o: CXX_COMPILER__output_unscanned_Debug /U
   OBJECT_DIR = CMakeFiles/output.dir
   OBJECT_FILE_DIR = CMakeFiles/output.dir
 
-build CMakeFiles/output.dir/ActivationFunction.cpp.o: CXX_COMPILER__output_unscanned_Debug /Users/rayanouldmaamar/Document/C++/NeuralNetwork/ActivationFunction.cpp || cmake_object_order_depends_target_output
-  DEP_FILE = CMakeFiles/output.dir/ActivationFunction.cpp.o.d
+build CMakeFiles/output.dir/Activation.cpp.o: CXX_COMPILER__output_unscanned_Debug /Users/rayanouldmaamar/Document/C++/NeuralNetwork/Activation.cpp || cmake_object_order_depends_target_output
+  DEP_FILE = CMakeFiles/output.dir/Activation.cpp.o.d
   FLAGS = -g -std=gnu++17 -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk -fcolor-diagnostics
   OBJECT_DIR = CMakeFiles/output.dir
   OBJECT_FILE_DIR = CMakeFiles/output.dir
@@ -99,7 +99,7 @@ build CMakeFiles/output.dir/Loss.cpp.o: CXX_COMPILER__output_unscanned_Debug /Us
 #############################################
 # Link the executable output
 
-build output: CXX_EXECUTABLE_LINKER__output_Debug CMakeFiles/output.dir/main.cpp.o CMakeFiles/output.dir/Users/rayanouldmaamar/Document/C++/math/Matrix.cpp.o CMakeFiles/output.dir/Users/rayanouldmaamar/Document/C++/math/Random.cpp.o CMakeFiles/output.dir/Layer.cpp.o CMakeFiles/output.dir/ActivationFunction.cpp.o CMakeFiles/output.dir/NeuralNetwork.cpp.o CMakeFiles/output.dir/Loss.cpp.o
+build output: CXX_EXECUTABLE_LINKER__output_Debug CMakeFiles/output.dir/main.cpp.o CMakeFiles/output.dir/Users/rayanouldmaamar/Document/C++/math/Matrix.cpp.o CMakeFiles/output.dir/Users/rayanouldmaamar/Document/C++/math/Random.cpp.o CMakeFiles/output.dir/Layer.cpp.o CMakeFiles/output.dir/Activation.cpp.o CMakeFiles/output.dir/NeuralNetwork.cpp.o CMakeFiles/output.dir/Loss.cpp.o
   FLAGS = -g -arch arm64 -isysroot /Library/Developer/CommandLineTools/SDKs/MacOSX15.2.sdk
   OBJECT_DIR = CMakeFiles/output.dir
   POST_BUILD = :

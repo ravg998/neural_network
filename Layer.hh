@@ -5,7 +5,7 @@
 #ifndef NEURALNETWORK_LAYER_HH
 #define NEURALNETWORK_LAYER_HH
 #include "../math/Matrix.h"
-#include "ActivationFunction.hh"
+#include "Activation.hh"
 /*
 Here, we assume that:
     input  = _x
@@ -22,7 +22,7 @@ class Layer
 private:
     // INPUTS
     Matrix _x;
-    ActivationFunction _activation_function;
+    Activation* _activation_function;
     unsigned int _n_output;
     unsigned int _n_observation;
 
@@ -47,7 +47,7 @@ private:
 public:
     // CONSTRUCTOR
     Layer();
-    Layer(const Matrix&, unsigned int, const ActivationFunctionType&);
+    Layer(const Matrix&, unsigned int,  Activation&);
 
     // METHOD
     /// INITIALIZATION

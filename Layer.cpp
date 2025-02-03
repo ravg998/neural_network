@@ -1,5 +1,5 @@
 #include "Layer.hh"
-#include "ActivationFunction.hh"
+#include "Activation.hh"
 
 // CONSTRUCTOR
 Layer::Layer()
@@ -7,8 +7,8 @@ Layer::Layer()
 
 }
 
-Layer::Layer(const Matrix& input, unsigned int n_output, const ActivationFunctionType & activation_function) {
-    _activation_function.set_activation_function(activation_function);
+Layer::Layer(const Matrix& input, unsigned int n_output,  Activation&  activation_function) {
+    _activation_function =  &activation_function;
     _n_output = n_output;
     _x = input;
     _n_observation = input.get_n_col();
@@ -74,7 +74,7 @@ void Layer::compute_z() {
 
 }
 void Layer::compute_y() {
-    _y_hat = _activation_function.forward(_z);
+    _y_hat = _activation_function->forward(_z);
 }
 
 
@@ -91,7 +91,7 @@ void Layer::forward(const Matrix & input) {
 /// BACKWARD
 void Layer::compute_dy_dz(unsigned int i)
 {
-    _dy_dz = _dy_dz + _activation_function.backward(this->get_z(i));
+    _dy_dz = _dy_dz + _activation_function->backward(this->get_z(i));
 }
 
 void Layer::compute_dz_dx() {
